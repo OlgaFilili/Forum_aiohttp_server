@@ -1,0 +1,4 @@
+*.env
+*.bak
+*.log
+venv_for_aiohttp_python_3_10_11\
