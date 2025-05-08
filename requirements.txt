@@ -2,3 +2,5 @@ aiohttp==3.11.18 # наш фрейворк
 aiohttp-jinja2==1.6 # модуль для работы с HTML-шаблонами
 SQLAlchemy==1.3.24
 PyYAML==6.0.2
+gino==1.0.1
+alembic==1.11.3
