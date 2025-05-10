@@ -1,5 +1,5 @@
 common:  
   port: $PORT 
 postgres:   
-  database_url: postgres://Olga:npg_hSMqze7K1kxB@ep-patient-pine-a2xcpnmb.eu-central-1.pg.koyeb.app/koyebdb   
+  database_url: $DATABASE_URL   
   require_ssl: true

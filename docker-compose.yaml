@@ -2,4 +2,13 @@
 services:  
   web:     
     build: .
+    depends_on:
+        - db
 #    command: pwd && bash ./run.sh
+  db:
+    image: postgres:14
+    environment:
+        - DATABASE_HOST=ep-patient-pine-a2xcpnmb.eu-central-1.pg.koyeb.app
+        - DATABASE_USER=Olga
+        - DATABASE_PASSWORD=npg_hSMqze7K1kxB
+        - DATABASE_NAME=koyebdb
