@@ -11,6 +11,7 @@ COPY requirements.txt .
 # Установим зависимости внутри контейнера
 RUN pip install -r requirements.txt
 # Скопируем остальные файлы в контейнер
+EXPOSE 8080
 COPY . .
 # разрешаем наш скрипт на исполнение операционной системой
 RUN chmod +x run.sh
