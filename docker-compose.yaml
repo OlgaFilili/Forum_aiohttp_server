@@ -4,13 +4,9 @@ services:
     build: .
     depends_on:
         - db
-    ports:
-        - "8080:8080"
     command: pwd && bash ./run.sh
   db:
     image: postgres:14
-    ports:
-        - "5432:5432"
     environment:
         - DATABASE_HOST=ep-patient-pine-a2xcpnmb.eu-central-1.pg.koyeb.app
         - DATABASE_USER=Olga
