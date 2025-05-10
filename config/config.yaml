@@ -1,5 +1,5 @@
 common:
   port: 8080 # порт, на котором будет запускаться наше приложение
 postgres:
-  database_url: postgresql://OlgaF:Qwerty123!@localhost/forum
-  require_ssl: false # стоит ли шифровать соединение с базой
+  database_url: postgres://Olga:npg_9zIGwEtJg4Yj@ep-cold-smoke-a2o01052.eu-central-1.pg.koyeb.app/koyebdb
+  require_ssl: true # стоит ли шифровать соединение с базой
