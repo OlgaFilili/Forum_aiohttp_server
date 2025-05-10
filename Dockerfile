@@ -1,7 +1,7 @@
 # Docker-команда FROM указывает базовый образ контейнера
-# Наш базовый образ - это Linux с предустановленным python-3.7
+# Наш базовый образ - это Linux с предустановленным python-3.10
 FROM --platform=linux/amd64 ubuntu:jammy
-FROM python:3.10-slim
+FROM python:3.10-slim #docker посоветовал так написать вместо след. строки
 #FROM python:3.10.11
 # gettext-base нужен для того, чтобы установить envsubst
 RUN apt update && apt -y install gettext-base
@@ -9,6 +9,7 @@ RUN apt update && apt -y install gettext-base
 COPY requirements.txt .
 # Установим зависимости внутри контейнера
 RUN pip install -r requirements.txt
+EXPOSE 8080
 # Скопируем остальные файлы в контейнер
 COPY . .
 # разрешаем наш скрипт на исполнение операционной системой
