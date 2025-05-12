@@ -10,7 +10,6 @@ RUN apt update && apt -y install gettext-base
 COPY requirements.txt .
 # Установим зависимости внутри контейнера
 RUN pip install -r requirements.txt
-EXPOSE 8080
 # Скопируем остальные файлы в контейнер
 COPY . .
 # разрешаем наш скрипт на исполнение операционной системой
