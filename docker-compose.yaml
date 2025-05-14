@@ -7,8 +7,6 @@ services:
     image: postgres:11
     ports:
       - ${DATABASE_PORT}:5432
-    volumes:
-      - aiohttp_server_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: OlgaF
       POSTGRES_DB: forum
