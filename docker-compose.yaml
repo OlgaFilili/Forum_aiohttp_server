@@ -1,7 +1,7 @@
 #version: '3' 
-services:  
-  web:     
-    build: .
+services: 
+    web:     
+        build: .
 #    command: pwd && bash ./run.sh
 #  postgres:
 #    image: postgres:11
@@ -10,3 +10,6 @@ services:
 #    environment:
 #      - POSTGRES_USER: OlgaF
 #      - POSTGRES_DB: forum
+volumes:
+    aiohttp_sever_data:
+    
