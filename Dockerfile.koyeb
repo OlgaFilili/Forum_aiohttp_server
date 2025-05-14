@@ -1,4 +1,4 @@
 FROM koyeb/docker-compose
 # Install Git
 RUN apk add --no-cache git
-COPY . /app
+COPY ./app
