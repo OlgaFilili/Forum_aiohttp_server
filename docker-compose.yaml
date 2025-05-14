@@ -2,7 +2,7 @@
 services: 
     web:     
         build: .
-#    command: pwd && bash ./run.sh
+    command: pwd && bash ./run.sh
 #  postgres:
 #    image: postgres:11
 #    ports:
