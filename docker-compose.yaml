@@ -3,3 +3,12 @@ services:
   web:     
     build: .
 #    command: pwd && bash ./run.sh
+  postgres:
+    image: postgres:11
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - 6fb6d6a2e62cda54a49f97a850ff33d60b7fddeaf485271510c4c5a42fe1673a:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: OlgaF
+      POSTGRES_DB: forum
