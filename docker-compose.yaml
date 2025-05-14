@@ -6,7 +6,7 @@ services:
   postgres:
     image: postgres:11
     ports:
-      - ${DATABASE_PORT}:5432
+      - 5432:5432
     environment:
-      POSTGRES_USER: OlgaF
-      POSTGRES_DB: forum
+      - POSTGRES_USER: OlgaF
+      - POSTGRES_DB: forum
