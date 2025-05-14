@@ -3,10 +3,10 @@ services:
   web:     
     build: .
 #    command: pwd && bash ./run.sh
-  postgres:
-    image: postgres:11
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_USER: OlgaF
-      - POSTGRES_DB: forum
+#  postgres:
+#    image: postgres:11
+#    ports:
+#      - 5432:5432
+#    environment:
+#      - POSTGRES_USER: OlgaF
+#      - POSTGRES_DB: forum
