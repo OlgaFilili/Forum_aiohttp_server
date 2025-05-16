@@ -2,6 +2,36 @@
 services: 
   web:     
     build: .
+    command: pwd && bash ./run.sh
+  postgres:
+    image: postgres:11
+    #command: -c config_file=./postgresql.conf
+    environment:
+      POSTGRES_USER: "OlgaF"
+      POSTGRES_PASSWORD: "Qwerty123!"
+      POSTGRES_DB: "forum"
+      PGDATA: "/var/lib/postgresql/data"
+    volumes:
+      - ../2. Init Database:/docker-entrypoint-initdb.d
+      - aiohttp_server_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+#    healthcheck:
+      #test: ["CMD-SHELL", "pg_isready -U OlgaF -d forum"]
+      #interval: 10s
+      #timeout: 5s
+      #retries: 2
+      #start_period: 10s
+    #restart: unless-stopped
+    #deploy:
+      #resources:
+        #limits:
+          #cpus: '1'
+          #memory: 4G
+
+volumes:
+  aiohttp_server_data:
+
 #    command: pwd && bash ./run.sh
 #  postgres:
 #    image: postgres:11
