@@ -2,7 +2,9 @@
 services: 
   web:     
     build: .
-    command: pwd && bash ./run.sh
+    ports:
+      - "8080:8080"
+    #command: pwd && bash ./run.sh
   postgres:
     image: postgres:11
     #command: -c config_file=./postgresql.conf
