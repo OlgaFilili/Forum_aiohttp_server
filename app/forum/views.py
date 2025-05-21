@@ -4,7 +4,7 @@ from datetime import datetime
 # создаем функцию, которая будет отдавать html-файл
 @aiohttp_jinja2.template("index.html")
 async def index(request):
-   return {'title': 'Пишем первое приложение на aiohttp'}
+   return {'title': 'Пишу первое приложение на aiohttp'}
 
 #создаем новый View
 from app.forum.models import Message
