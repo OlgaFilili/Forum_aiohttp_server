@@ -1,14 +1,14 @@
 import aiohttp_jinja2
+import gino
 from aiohttp import web
 from datetime import datetime
+#создаем новый View
+from app.forum.models import Message
+from app.store.database.models import db
 # создаем функцию, которая будет отдавать html-файл
 @aiohttp_jinja2.template("index.html")
 async def index(request):
    return {'title': 'Пишу первое приложение на aiohttp'}
-
-#создаем новый View
-from app.forum.models import Message
-from app.store.database.models import db
 
 class ListMessageView(web.View):
     async def get(self):
