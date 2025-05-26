@@ -8,6 +8,7 @@ async def index(request):
 
 #создаем новый View
 from app.forum.models import Message
+from app.store.database.models import db
 
 class ListMessageView(web.View):
     async def get(self):
