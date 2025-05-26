@@ -15,7 +15,7 @@ class PostgresAccessor:
     async def _on_connect(self, application: web.Application):
         # здесь был импорт дб
         self.config = application["config"]["postgres"]
-        await db.set_bind(self.config["database_url"])
+        await db.set_bind(self.config["postgres"]["database_url"])
         self.db = db
 
     async def _on_disconnect(self, _) -> None:
