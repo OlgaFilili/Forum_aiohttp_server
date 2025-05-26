@@ -27,7 +27,7 @@ class ListMessageView(web.View):
 class CreateMessageView(web.View):
     async def post(self):
         data = await self.request.json()
-        message = await self.request.app["db"].message.create(
+        message = await self.request.app['db'].message.create(
             text=data['text'],
             created=datetime.now(),
         )
