@@ -20,10 +20,10 @@ services:
       POSTGRES_HOST: $DATABASE_HOST
 #      PGDATA: "/var/lib/postgresql/data"
     volumes:
-      - ../2. Init Database:/docker-entrypoint-initdb.d
+#      - ../2. Init Database:/docker-entrypoint-initdb.d
       - for_db_postgres14:/var/lib/postgresql/data
     ports:
-      - 5433:5432
+      - 5432:5432
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $DATABASE_USER -d $DATABASE_NAME -h $DATABASE_HOST", "--quiet"]
       interval: 10s
