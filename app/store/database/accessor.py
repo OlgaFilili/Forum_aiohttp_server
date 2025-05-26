@@ -1,9 +1,10 @@
 from aiohttp import web
+from app.forum.models import Message
+from app.store.database.models import db
 
 class PostgresAccessor:
     def __init__(self) -> None:
-        from app.forum.models import Message
-
+        # здесь был импорт Мессадж
         self.message = Message
         self.db = None
 
@@ -12,8 +13,7 @@ class PostgresAccessor:
         application.on_cleanup.append(self._on_disconnect)
 
     async def _on_connect(self, application: web.Application):
-        from app.store.database.models import db
-
+        # здесь был импорт дб
         self.config = application["config"]["postgres"]
         await db.set_bind(self.config["database_url"])
         self.db = db
