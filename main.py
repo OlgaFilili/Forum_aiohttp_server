@@ -33,10 +33,12 @@ def setup_routes(application):
 
 def setup_app(application):
    setup_config(application)# добавилось после подключения конфига
+   setup_routes(application)  # настройки роутера приложения
+   setup_external_libraries(application)  # настройки внешних библиотек, например шаблонизатора
    setup_accessors(application)# добавили подключение аксессора
    # настройка всего приложения состоит из:
-   setup_external_libraries(application)  # настройки внешних библиотек, например шаблонизатора
-   setup_routes(application)  # настройки роутера приложения
+
+
 
 
 app = web.Application()  # создаем наш веб-сервер
