@@ -1,5 +1,4 @@
 import aiohttp_jinja2
-import gino
 from aiohttp import web
 from datetime import datetime
 #создаем новый View
