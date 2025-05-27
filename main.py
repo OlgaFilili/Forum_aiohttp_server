@@ -3,6 +3,7 @@ import jinja2  # шаблонизатор jinja2
 import aiohttp_jinja2  # адаптация jinja2 к aiohttp
 
 from app.settings import config, BASE_DIR
+from app.forum.routes import setup_routes as setup_forum_routes
 from app.store.database.accessor import PostgresAccessor
 
 def setup_config(application):
@@ -25,7 +26,6 @@ def setup_external_libraries(application):
 
 # в этой функции производится настройка url-путей для всего приложения
 def setup_routes(application):
-   from app.forum.routes import setup_routes as setup_forum_routes
    setup_forum_routes(application)  # настраиваем url-пути приложения forum
 
 
@@ -41,5 +41,5 @@ app = web.Application()  # создаем наш веб-сервер
 
 if __name__ == "__main__":  # эта строчка указывает, что данный файл можно запустить как скрипт
    setup_app(app)  # настраиваем приложение
-   web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфигаЭ
+   web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
    #web.run_app(app)  # запускаем приложение
