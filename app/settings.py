@@ -3,7 +3,7 @@ import yaml
 import os
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
-config_path = BASE_DIR / "config" / "config.yaml"
+config_path = BASE_DIR / "config" / "koyeb-config.yaml"
 
 
 def get_config(path):
@@ -26,8 +26,6 @@ def load_config(path):
     db_password = require_env("DATABASE_PASSWORD")
     db_host = require_env("DATABASE_HOST")
     db_name = require_env("DATABASE_NAME")
-
-    require_env("DATABASE_USER")
     
     # Safely build config values from env vars
     config["common"]["port"] = int(os.getenv("PORT", 8080))  # optional default
@@ -35,5 +33,5 @@ def load_config(path):
 
     return config
     
-config = get_config(config_path)
-config= load_config(BASE_DIR / "config" / "koyeb-config.yaml")
+#config = get_config(config_path)
+config= load_config(config_path)
