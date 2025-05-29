@@ -1,5 +1,6 @@
 import pathlib
 import yaml
+import os
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
 config_path = BASE_DIR / "config" / "config.yaml"
@@ -10,5 +11,29 @@ def get_config(path):
         parsed_config = yaml.safe_load(f)
         return parsed_config
 
+def require_env(var_name):
+    value = os.getenv(var_name)
+    if not value:
+        raise RuntimeError(f"Missing required environment variable: {var_name}")
+    return value
+    
+def load_config(path):
+    with open(path, "r") as f:
+        config = yaml.safe_load(f)
 
+    # Use the helper to ensure variables are present
+    db_user = require_env("DATABASE_USER")
+    db_password = require_env("DATABASE_PASSWORD")
+    db_host = require_env("DATABASE_HOST")
+    db_name = require_env("DATABASE_NAME")
+
+    require_env("DATABASE_USER")
+    
+    # Safely build config values from env vars
+    config["common"]["port"] = int(os.getenv("PORT", 8080))  # optional default
+    config["postgres"]["database_url"] = f"postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}"
+
+    return config
+    
 config = get_config(config_path)
+config= load_config(config_path)

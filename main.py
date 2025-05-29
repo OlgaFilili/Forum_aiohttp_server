@@ -3,12 +3,10 @@ import jinja2  # шаблонизатор jinja2
 import aiohttp_jinja2  # адаптация jinja2 к aiohttp
 
 from app.settings import config, BASE_DIR
-from app.config_loader import load_config
 from app.store.database.accessor import PostgresAccessor
 from app.forum.routes import setup_routes as setup_forum_routes
 
 def setup_config(application):
-    config=load_config()
     application["config"] = config
     
 #def setup_accessors(application):
