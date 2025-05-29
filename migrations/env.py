@@ -9,8 +9,8 @@ from sqlalchemy import create_engine
 
 # вместо этого from app.settings import config as app_config
 # вот это
-from app.settings import get_config
-app_config = get_config()
+#from app.settings import get_config
+#app_config = get_config()
 
 from app.store.database.accessor import PostgresAccessor
 from app.store.database.models import db
@@ -23,6 +23,18 @@ config = context.config
 # This line sets up loggers basically.
 #if config.config_file_name is not None:
 fileConfig(config.config_file_name)
+
+db_user = os.getenv("DATABASE_USER")
+db_password = os.getenv("DATABASE_PASSWORD")
+db_host = os.getenv("DATABASE_HOST")
+db_name = os.getenv("DATABASE_NAME")
+
+if not all([db_user, db_password, db_host, db_name]):
+    raise RuntimeError("Missing one or more required environment variables for DB connection")
+
+database_url = f"postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}"
+
+config.set_main_option("sqlalchemy.url", database_url)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
