@@ -31,16 +31,16 @@ db_name = os.getenv("POSTGRES_DB")
 
 print("[Alembic] Environment variables:")
 print("  DATABASE_USER:", os.getenv("POSTGRES_USER"))
-print("  DATABASE_PASSWORD:", os.getenv("POSTGRES_PASSWORD"))
-print("  DATABASE_HOST:", os.getenv("POSTGRES_HOST"))
-print("  DATABASE_NAME:", os.getenv("POSTGRES_DB"))
+#print("  DATABASE_PASSWORD:", os.getenv("POSTGRES_PASSWORD"))
+#print("  DATABASE_HOST:", os.getenv("POSTGRES_HOST"))
+#print("  DATABASE_NAME:", os.getenv("POSTGRES_DB"))
 
 if not all([db_user, db_password, db_host, db_name]):
     raise RuntimeError("Missing one or more required environment variables for DB connection")
 
 database_url = f"postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}"
 
-config.set_main_option("sqlalchemy.url", database_url)
+#config.set_main_option("sqlalchemy.url", database_url)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
@@ -58,7 +58,7 @@ def run_migrations_online():
     # Alembic видит только те модели, которые импортированы в момент генерации миграции.
     # PostgresAccessor инстанцируется и импортит все нужные модели, тем самым позволяя автогенерировать миграции
     #print("App config loaded:", app_config)
-    print("Database URL:", database_url)
+    #print("Database URL:", database_url)
     PostgresAccessor()
     connectable = create_engine(database_url)
     with connectable.connect() as connection:
