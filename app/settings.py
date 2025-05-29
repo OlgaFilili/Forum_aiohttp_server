@@ -3,13 +3,13 @@ import yaml
 import os
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
-config_path = BASE_DIR / "config" / "koyeb-config.yaml"
+config_path = BASE_DIR / "config" / "config.yaml"
 
 
-def get_config(path):
-    with open(path) as f:
-        parsed_config = yaml.safe_load(f)
-        return parsed_config
+#def get_config(path):
+    #with open(path) as f:
+        #parsed_config = yaml.safe_load(f)
+        #return parsed_config
 
 def require_env(var_name):
     value = os.getenv(var_name)

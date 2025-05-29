@@ -8,6 +8,11 @@ from app.forum.routes import setup_routes as setup_forum_routes
 
 def setup_config(application):
     application["config"] = get_config()
+    try:
+        config = get_config()
+    except RuntimeError as e:
+        print(f"Failed to load configuration: {e}")
+        raise
     
 def setup_accessors(application):
     application['db'] = PostgresAccessor()
