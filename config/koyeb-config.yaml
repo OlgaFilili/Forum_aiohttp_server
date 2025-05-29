@@ -1,5 +1,5 @@
 common:  
-  port: $PORT 
+  port: None
 postgres:   
-  database_url: postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:5432/$DATABASE_NAME
+  database_url: None
   require_ssl: true
