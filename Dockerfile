@@ -1,7 +1,6 @@
 # Docker-команда FROM указывает базовый образ контейнера
 # Наш базовый образ - это Linux с предустановленным python-3.10
-FROM --platform=linux/amd64 ubuntu:jammy
-FROM python:3.10-slim 
+FROM --platform=linux/amd64 python:3.10-slim 
 #docker посоветовал так написать вместо след. строки
 #FROM python:3.10.11
 # gettext-base нужен для того, чтобы установить envsubst
