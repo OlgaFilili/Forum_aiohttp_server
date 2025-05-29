@@ -7,7 +7,11 @@ from alembic import context
 #добавила
 from sqlalchemy import create_engine
 
-from app.settings import config as app_config
+# вместо этого from app.settings import config as app_config
+# вот это
+from app.settings import get_config
+app_config = get_config()
+
 from app.store.database.accessor import PostgresAccessor
 from app.store.database.models import db
 

@@ -34,4 +34,11 @@ def load_config(path):
     return config
     
 #config = get_config(config_path)
-config= load_config(config_path)
+#config= load_config(config_path)
+_config = None
+
+def get_config():
+    global _config
+    if _config is None:
+        _config = load_config(config_path)
+    return _config
