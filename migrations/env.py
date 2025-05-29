@@ -2,7 +2,7 @@ from logging.config import fileConfig
 
 """from sqlalchemy import engine_from_config
 from sqlalchemy import pool"""
-
+import os
 from alembic import context
 #добавила
 from sqlalchemy import create_engine
