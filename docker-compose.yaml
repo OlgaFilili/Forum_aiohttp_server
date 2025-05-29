@@ -9,15 +9,15 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    #command: pwd && bash ./run.sh
-  postgres:
-    image: postgres:14
-    #command: -c config_file=./postgresql.conf
     environment:
       POSTGRES_USER: $DATABASE_USER
       POSTGRES_PASSWORD: $DATABASE_PASSWORD
       POSTGRES_DB: $DATABASE_NAME
       POSTGRES_HOST: $DATABASE_HOST
+    #command: pwd && bash ./run.sh
+  postgres:
+    image: postgres:14
+    #command: -c config_file=./postgresql.conf
 #      PGDATA: "/var/lib/postgresql/data"
     volumes:
 #      - ../2. Init Database:/docker-entrypoint-initdb.d
