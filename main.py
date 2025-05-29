@@ -40,13 +40,13 @@ async def setup_app(application):
 
 
 if __name__ == "__main__":  # эта строчка указывает, что данный файл можно запустить как скрипт
-   import asyncio
+    import asyncio
    
-   async def main():
-    app = web.Application()  # создаем наш веб-сервер 
-    application['db'] = PostgresAccessor()
+    async def main():
+        app = web.Application()  # создаем наш веб-сервер 
+        application['db'] = PostgresAccessor()
     
-    await setup_app(app)  # настраиваем приложение
-    web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
+        await setup_app(app)  # настраиваем приложение
+        web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
     
     asyncio.run(main())
