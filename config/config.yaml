@@ -1,6 +1,6 @@
 common:
   port: 8080 # порт, на котором будет запускаться наше приложение
 postgres:
-  database_url: postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:5432/$DATABASE_NAME 
+  database_url: postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:5432/$POSTGRES_NAME 
 #  database_url: postgres://OlgaF:Qwerty123!@localhost:5433/forum
   require_ssl: false # стоит ли шифровать соединение с базой

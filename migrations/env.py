@@ -27,13 +27,13 @@ fileConfig(config.config_file_name)
 db_user = os.getenv("POSTGRES_USER")
 db_password = os.getenv("POSTGRES_PASSWORD")
 db_host = os.getenv("POSTGRES_HOST")
-db_name = os.getenv("POSTGRES_NAME")
+db_name = os.getenv("POSTGRES_DB")
 
 print("[Alembic] Environment variables:")
 print("  DATABASE_USER:", os.getenv("POSTGRES_USER"))
 print("  DATABASE_PASSWORD:", os.getenv("POSTGRES_PASSWORD"))
 print("  DATABASE_HOST:", os.getenv("POSTGRES_HOST"))
-print("  DATABASE_NAME:", os.getenv("POSTGRES_NAME"))
+print("  DATABASE_NAME:", os.getenv("POSTGRES_DB"))
 
 if not all([db_user, db_password, db_host, db_name]):
     raise RuntimeError("Missing one or more required environment variables for DB connection")

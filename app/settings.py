@@ -25,7 +25,7 @@ def load_config(path):
     db_user = require_env("POSTGRES_USER")
     db_password = require_env("POSTGRES_PASSWORD")
     db_host = require_env("POSTGRES_HOST")
-    db_name = require_env("POSTGRES_NAME")
+    db_name = require_env("POSTGRES_DB")
     
     # Safely build config values from env vars
     config["common"]["port"] = int(os.getenv("PORT", 8080))  # optional default
