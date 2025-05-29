@@ -29,6 +29,12 @@ db_password = os.getenv("DATABASE_PASSWORD")
 db_host = os.getenv("DATABASE_HOST")
 db_name = os.getenv("DATABASE_NAME")
 
+print("[Alembic] Environment variables:")
+print("  DATABASE_USER:", os.getenv("DATABASE_USER"))
+print("  DATABASE_PASSWORD:", os.getenv("DATABASE_PASSWORD"))
+print("  DATABASE_HOST:", os.getenv("DATABASE_HOST"))
+print("  DATABASE_NAME:", os.getenv("DATABASE_NAME"))
+
 if not all([db_user, db_password, db_host, db_name]):
     raise RuntimeError("Missing one or more required environment variables for DB connection")
 
