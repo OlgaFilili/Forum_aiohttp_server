@@ -22,12 +22,12 @@ def load_config(path):
         config = yaml.safe_load(f)
 
     # Use the helper to ensure variables are present
-    db_user = require_env($DATABASE_USER)
-    db_password = require_env($DATABASE_PASSWORD)
-    db_host = require_env($DATABASE_HOST)
-    db_name = require_env($DATABASE_NAME)
+    db_user = require_env("DATABASE_USER")
+    db_password = require_env("DATABASE_PASSWORD")
+    db_host = require_env("DATABASE_HOST")
+    db_name = require_env("DATABASE_NAME")
 
-    require_env($DATABASE_USER)
+    require_env("DATABASE_USER")
     
     # Safely build config values from env vars
     config["common"]["port"] = int(os.getenv("PORT", 8080))  # optional default
