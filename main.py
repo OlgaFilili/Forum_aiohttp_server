@@ -9,9 +9,9 @@ from app.forum.routes import setup_routes as setup_forum_routes
 def setup_config(application):
     application["config"] = get_config()
     
-#def setup_accessors(application):
-    #application['db'] = PostgresAccessor()
-    #application['db'].setup(application)
+def setup_accessors(application):
+    application['db'] = PostgresAccessor()
+    application['db'].setup(application)
 
 #вместо первоначального варианта!
 def setup_external_libraries(application):
@@ -29,24 +29,25 @@ def setup_routes(application):
    # здесь был импорт сетап_роутс
    setup_forum_routes(application)  # настраиваем url-пути приложения forum
 
+app = web.Application() 
 
-
-async def setup_app(application):
+def setup_app(application):
    setup_config(application)# добавилось после подключения конфига
    setup_external_libraries(application)  # настройки внешних библиотек, например шаблонизатора
-   #setup_accessors(application)# добавили подключение аксессора
-   await application['db'].setup(application)
+   setup_accessors(application)# добавили подключение аксессора
+#   await application['db'].setup(application)
    setup_routes(application)  # настройки роутера приложения
 
 
 if __name__ == "__main__":  # эта строчка указывает, что данный файл можно запустить как скрипт
-    import asyncio
+#   import asyncio
    
-    async def main():
-        app = web.Application()  # создаем наш веб-сервер 
-        application['db'] = PostgresAccessor()
+#   async def main():
+# создаем наш веб-сервер 
+#       application['db'] = PostgresAccessor()
     
-        await setup_app(app)  # настраиваем приложение
-        web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
+#       await 
+    setup_app(app)  # настраиваем приложение
+    web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
     
-    asyncio.run(main())
+#    asyncio.run(main())
