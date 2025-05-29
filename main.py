@@ -34,8 +34,6 @@ def setup_routes(application):
    # здесь был импорт сетап_роутс
    setup_forum_routes(application)  # настраиваем url-пути приложения forum
 
-app = web.Application() 
-
 def setup_app(application):
    setup_config(application)# добавилось после подключения конфига
    setup_external_libraries(application)  # настройки внешних библиотек, например шаблонизатора
@@ -43,6 +41,7 @@ def setup_app(application):
 #   await application['db'].setup(application)
    setup_routes(application)  # настройки роутера приложения
 
+app = web.Application()
 
 if __name__ == "__main__":  # эта строчка указывает, что данный файл можно запустить как скрипт
 #   import asyncio
