@@ -3,7 +3,7 @@ import yaml
 import os
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
-config_path = BASE_DIR / "config" / "config.yaml"
+config_path = BASE_DIR / "config" / "koyeb-config.yaml"
 
 
 #def get_config(path):

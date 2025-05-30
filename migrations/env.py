@@ -9,8 +9,8 @@ from sqlalchemy import create_engine
 
 # вместо этого from app.settings import config as app_config
 # вот это
-#from app.settings import get_config
-#app_config = get_config()
+from app.settings import get_config
+app_config = get_config()
 
 from app.store.database.accessor import PostgresAccessor
 from app.store.database.models import db
@@ -24,21 +24,21 @@ config = context.config
 #if config.config_file_name is not None:
 fileConfig(config.config_file_name)
 
-db_user = os.getenv("POSTGRES_USER")
-db_password = os.getenv("POSTGRES_PASSWORD")
-db_host = os.getenv("POSTGRES_HOST")
-db_name = os.getenv("POSTGRES_DB")
+#db_user = os.getenv("POSTGRES_USER")
+#db_password = os.getenv("POSTGRES_PASSWORD")
+#db_host = os.getenv("POSTGRES_HOST")
+#db_name = os.getenv("POSTGRES_DB")
 
-print("[Alembic] Environment variables:")
-print("  DATABASE_USER:", os.getenv("POSTGRES_USER"))
+#print("[Alembic] Environment variables:")
+#print("  DATABASE_USER:", os.getenv("POSTGRES_USER"))
 #print("  DATABASE_PASSWORD:", os.getenv("POSTGRES_PASSWORD"))
 #print("  DATABASE_HOST:", os.getenv("POSTGRES_HOST"))
 #print("  DATABASE_NAME:", os.getenv("POSTGRES_DB"))
 
-if not all([db_user, db_password, db_host, db_name]):
-    raise RuntimeError("Missing one or more required environment variables for DB connection")
+#if not all([db_user, db_password, db_host, db_name]):
+    #raise RuntimeError("Missing one or more required environment variables for DB connection")
 
-database_url = f"postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}"
+#database_url = f"postgresql://{db_user}:{db_password}@{db_host}:5432/{db_name}"
 
 #config.set_main_option("sqlalchemy.url", database_url)
 
@@ -60,7 +60,7 @@ def run_migrations_online():
     #print("App config loaded:", app_config)
     #print("Database URL:", database_url)
     PostgresAccessor()
-    connectable = create_engine(database_url)
+    connectable = create_engine(app_config["postgres"]["database_url"])
     with connectable.connect() as connection:
         context.configure(connection=connection, target_metadata=target_metadata)
         with context.begin_transaction():
