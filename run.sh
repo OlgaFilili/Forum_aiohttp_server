@@ -6,11 +6,8 @@ if [ ! -f config/koyeb-config.yaml ]; then
   exit 1
 fi
 echo "[run.sh] Checking required environment variables..."
-
 : "${POSTGRES_USER:?Missing DATABASE_USER}"
-: "${POSTGRES_PASSWORD:?Missing DATABASE_PASSWORD}"
-: "${POSTGRES_HOST:?Missing DATABASE_HOST}"
-: "${POSTGRES_DB:?Missing DATABASE_NAME}"
+
 #cat config/koyeb-config.yaml | envsubst > config/config.yaml 
 envsubst < config/koyeb-config.yaml > config/config.yaml
 # необходимо для того, чтобы alembic смог найти наше приложение
