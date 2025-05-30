@@ -58,8 +58,8 @@ target_metadata = db # вместо следующей строки
 def run_migrations_online():
     # Alembic видит только те модели, которые импортированы в момент генерации миграции.
     # PostgresAccessor инстанцируется и импортит все нужные модели, тем самым позволяя автогенерировать миграции
-    print(">> app_config:", app_config)
-    print(">> database_url:", app_config["postgres"]["database_url"])
+    #print(">> app_config:", app_config)
+    #print(">> database_url:", app_config["postgres"]["database_url"])
     PostgresAccessor()
     connectable = create_engine(app_config["postgres"]["database_url"])
     with connectable.connect() as connection:
