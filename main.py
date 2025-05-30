@@ -10,13 +10,21 @@ def setup_config(application):
     #application["config"] = get_config()
     try:
         config = get_config()
+        application["config"] = config
     except RuntimeError as e:
         print(f"Failed to load configuration: {e}")
         raise
     
+#def setup_accessors(application):
+    #application['db'] = PostgresAccessor()
+    #application['db'].setup(application)
+    
+async def on_startup(app):
+    await app['db'].setup(app)
+
 def setup_accessors(application):
     application['db'] = PostgresAccessor()
-    application['db'].setup(application)
+    application.on_startup.append(on_startup)
 
 #вместо первоначального варианта!
 def setup_external_libraries(application):
@@ -42,7 +50,7 @@ def setup_app(application):
    setup_routes(application)  # настройки роутера приложения
 
 app = web.Application()
-
+setup_app(app)
 if __name__ == "__main__":  # эта строчка указывает, что данный файл можно запустить как скрипт
 #   import asyncio
    
@@ -51,7 +59,7 @@ if __name__ == "__main__":  # эта строчка указывает, что �
 #       application['db'] = PostgresAccessor()
     
 #       await 
-    setup_app(app)  # настраиваем приложение
-    web.run_app(app, port=config["common"]["port"])# вместо следующей строки "до появления конфига"
+  # настраиваем приложение
+    web.run_app(app, port=app["config"]["common"]["port"])# вместо следующей строки "до появления конфига"
     
 #    asyncio.run(main())
