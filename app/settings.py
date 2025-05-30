@@ -41,4 +41,4 @@ def get_config():
     global _config
     if _config is None:
         _config = load_config(config_path)
-    return _config"""
+    return _config
