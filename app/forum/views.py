@@ -8,7 +8,7 @@ from app.store.database.models import db
 # создаем функцию, которая будет отдавать html-файл
 @aiohttp_jinja2.template("index.html")
 async def index(request):
-   return {'title': 'Пишу первое приложение на aiohttp'}
+   return {'title': 'Toasted bread'}
 
 class ListMessageView(web.View):
     async def get(self):
