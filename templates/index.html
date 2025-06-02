@@ -9,11 +9,14 @@
         }
 
         body {
+		    margin: 0;
+			padding: 0;
             min-height: 100vh;
             background: url("/static/Tarantula_Nebula.jpg") no-repeat;
 			backkground-attachment: fixed;
             background-size: cover;
 			background-position: center;
+			overflow: hidden;
         }
 
         h1 {
@@ -26,14 +29,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+			height: 100vh;
+			width: 100%;
+			padding: 0;
+			box-sizing: border-box;
         }
 
         #messages {
             width: 70%;
+			overflow-y: auto;
+			flex-grow: 1;
+			margin-top: 10px;
+			padding-bottom: 10px;
+			z-index: 1;
         }
 
         .message {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.95);
             width: 100%;
             padding: 20px;
             border-radius: 10px;
@@ -58,7 +71,7 @@
 
         .message__created {
             font-size: 12px;
-            color: darkgrey;
+            color: lightgrey;
             text-align: right;
         }
 
@@ -79,32 +92,42 @@
         .form {
             width: 70%;
             margin-bottom: 20px;
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
         }
 
         .form__button {
 			background-color: transparent;
 			color: white !important;
 			border: 2px solid white;
-			color: white;
 			font-weight: bold;
             text-align: center;
             margin-top: 10px;
-            /*background-color: rgba(0, 0, 0, 1);*/
             cursor: pointer;
 			transition: 0.3s;
         }
 		
 		.form__button:hover {
-			border-color: black;
-			color: black;
+			border-color: white;
+			color: white;
+		}
+		
+		.form__input {
+			background-color: transparent;
+			color: white;
+			border: 2px solid white;
+		}
+		
+		.form__input::placeholder {
+			color: rgba(255, 255, 255, 0.7);
 		}
 
         .form__input, .form__button {
             box-sizing: border-box;
             width: 100%;
             font-size: 18px;
-            outline: none;
-            border: none;
             padding: 20px;
             border-radius: 5px;
             -webkit-transition: 0.3s;
