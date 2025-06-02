@@ -10,10 +10,10 @@
 
         body {
             min-height: 100vh;
-            background: url('templates/30_Doradus,_Tarantula_Nebula.jpg') no-repeat;
-			<!--linear-gradient(#f9de59, #f98365) no-repeat;-->
-			background-attachment: fixed; 
-            background-size: 100% 100%;
+            background: url('templates/30_Doradus,_Tarantula_Nebula.jpg') no-repeat center center fixed;
+			<!--linear-gradient(#f9de59, #f98365) no-repeat;
+			background-attachment: fixed; -->
+            background-size: cover;
         }
 
         h1 {
@@ -33,7 +33,7 @@
         }
 
         .message {
-            background-color: rgba(0, 0, 0, 1);
+            background-color: rgba(255, 255, 255, 0.8);
             width: 100%;
             padding: 20px;
             border-radius: 10px;
@@ -82,11 +82,21 @@
         }
 
         .form__button {
+			background-color: transparent;
+			border: 2px solid white;
+			color: white;
+			font-weight: bold;
             text-align: center;
             margin-top: 10px;
-            background-color: rgba(0, 0, 0, 1);
+            <!--background-color: rgba(0, 0, 0, 1);-->
             cursor: pointer;
+			transition: 0.3s;
         }
+		
+		.form__button:hover {
+			border-color: black;
+			color: black;
+		}
 
         .form__input, .form__button {
             box-sizing: border-box;
