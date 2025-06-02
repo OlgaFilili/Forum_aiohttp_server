@@ -42,8 +42,8 @@ def setup_routes(application):
    # здесь был импорт сетап_роутс
     setup_forum_routes(application)  # настраиваем url-пути приложения forum
    
-    static_dir = Path(__file__).parent / "static"
-    application.router.add_static('/static/', path=static_dir, name='static')
+    static_dir = {BASE_DIR} / "static"
+    application.router.add_static("/static/", path=static_dir, name="static")
 
 def setup_app(application):
    setup_config(application)# добавилось после подключения конфига
