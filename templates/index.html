@@ -14,10 +14,17 @@
             min-height: 100vh;
             background: url("/static/Tarantula_Nebula.jpg") no-repeat;
 			backkground-attachment: fixed;
-            background-size: cover;
-			background-position: center;
+            background-size: contain;
+			background-position: center center;
 			overflow: hidden;
         }
+		
+		body.contain {
+			background-size: contain;
+		}
+		body.cover {
+			background-size: cover;
+		}
 
         h1 {
             text-align: center;
@@ -34,19 +41,22 @@
 			padding: 0;
 			box-sizing: border-box;
         }
-
+		
         #messages {
             width: 70%;
 			overflow-y: auto;
+			max-height: 80vh;
 			flex-grow: 1;
 			margin-top: 10px;
 			padding-bottom: 10px;
 			z-index: 1;
+			scrollbar-width: thin;
+			scrollbar-color: blue lightgray;
         }
 
         .message {
             background-color: transparent;
-			border: 1px solid rgba(255, 255, 255, 0.95);
+			/*border: 1px solid rgba(255, 255, 255, 0.95);*/
             width: 100%;
             padding: 20px;
             border-radius: 10px;
