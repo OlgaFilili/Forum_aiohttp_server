@@ -10,7 +10,10 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(#f9de59, #f98365) no-repeat;
+            background: url('templates/30_Doradus,_Tarantula_Nebula.jpg') 
+			<!--linear-gradient(#f9de59, #f98365) no-repeat;-->
+			background-attachment: fixed; 
+            background-size: 100% 100%;
         }
 
         h1 {
@@ -30,7 +33,7 @@
         }
 
         .message {
-            background-color: white;
+            background-color: rgba(0, 0, 0, 1);
             width: 100%;
             padding: 20px;
             border-radius: 10px;
@@ -61,7 +64,7 @@
 
         .message__text {
             font-size: 20px;
-            color: black;
+            color: white;
             margin-top: 5px;
         }
 
@@ -81,7 +84,7 @@
         .form__button {
             text-align: center;
             margin-top: 10px;
-            background-color: white;
+            background-color: rgba(0, 0, 0, 1);
             cursor: pointer;
         }
 
@@ -117,8 +120,8 @@
     <div id="root">
         <div class="form">
             <input id="message_text" class="form__input" type="text"
-                   placeholder="Введите свой отзыв..."/>
-            <div class="form__button" onclick="sendMessage()">Отправить</div>
+                   placeholder="Your thoughts here..."/>
+            <div class="form__button" onclick="sendMessage()">Share</div>
         </div>
         <div id="messages">
 

@@ -18,7 +18,7 @@ class ListMessageView(web.View):
             messages_data.append({
                 "id": message.id,
                 "text": message.text,
-                "created": str(message.created),
+                "created": (message.created).strftime("%d-%m-%Y %H:%M:%S"),
             })
 
         return web.json_response(data={'messages': messages_data})
