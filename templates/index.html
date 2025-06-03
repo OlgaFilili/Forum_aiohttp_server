@@ -21,7 +21,7 @@
 			/*background-attachment: fixed;*/
             background-size: cover;
 			background-position: left top;
-			/*overflow: auto;*/
+			overflow: hidden
         }
 		
 		/*body.contain {
@@ -50,19 +50,19 @@
         }
 		
         #messages {
-            width: 70%;
+            width: 75%;
 			overflow-y: auto;
 			max-height: 80vh;
 			flex-grow: 1;
 			margin-top: 10px;
-			padding-bottom: 50px;
+			padding-bottom: 70px;
 			z-index: 1;
 
         }
 
         .message {
             background-color: transparent;
-			border: 1px solid rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.2);
             width: 98%;
             padding: 20px;
             border-radius: 10px;
@@ -107,17 +107,17 @@
 		.message::-webkit-scrollbar {
 			scrollbar-width: thin;
 			scrollbar-color: transparent;
-            width: 2px;  /* ширина скроллбара*/
+            width: 1px;  /* ширина скроллбара*/
         }
 
         .message::-webkit-scrollbar-thumb {
             border-radius: 5px; /* закругляем ползунок, для красоты*/
-            background-color: darkgray; /* задаём ползунку нужный цвет*/
+            background-color: transparent; /* задаём ползунку нужный цвет*/
         }
 
         .message::-webkit-scrollbar-track {
-			padding: 10px 10px 10px 10px;
-			margin: 20px 20px 20px 20px;
+			padding: 5px 2px 5px 5px;
+			margin: 2px 5px 2px 2px;
             /*margin: 5px 5px;  тот самый margin, который позволяет отступить от верха и низа блока*/
             background-color: transparent; /* цвет поля по которому бегает ползунок*/
         }
